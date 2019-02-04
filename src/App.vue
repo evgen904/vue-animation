@@ -4,7 +4,8 @@
 
     <transition
       name="ma"
-      type="animation"
+      :duration="{enter: 1500, leave: 2000}"
+      appear
     >
       <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, saepe?</p>
     </transition>
@@ -15,7 +16,7 @@
 export default {
   data () {
     return {
-      show: false
+      show: true
     }
   }
 }
