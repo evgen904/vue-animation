@@ -2,13 +2,21 @@
   <div class="container text-center pt-5">
     <button class="btn btn-primary mb-5" @click="show = !show">Toggle</button>
 
+    <!--<transition-->
+      <!--name="ma"-->
+      <!--:duration="{enter: 1500, leave: 2000}"-->
+      <!--appear-->
+    <!--&gt;-->
+      <!--<p v-if="show">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, saepe?</p>-->
+    <!--</transition>-->
+
     <transition
-      name="ma"
-      :duration="{enter: 1500, leave: 2000}"
-      appear
+      enter-active-class="animated wobble"
+      leave-active-class="animate shake"
     >
-      <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, saepe?</p>
+      <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, laborum?</p>
     </transition>
+
   </div>
 </template>
 
@@ -16,7 +24,7 @@
 export default {
   data () {
     return {
-      show: true
+      show: false
     }
   }
 }
