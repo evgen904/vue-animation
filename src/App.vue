@@ -10,11 +10,21 @@
       <!--<p v-if="show">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, saepe?</p>-->
     <!--</transition>-->
 
-    <transition
-      enter-active-class="animated wobble"
-      leave-active-class="animate shake"
-    >
-      <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, laborum?</p>
+    <!--<transition-->
+      <!--enter-active-class="animated wobble"-->
+      <!--leave-active-class="animate shake"-->
+    <!--&gt;-->
+      <!--<p v-if="show">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, laborum?</p>-->
+    <!--</transition>-->
+
+    <!--<transition name="ma" mode="in-out">-->
+      <!--<div class="alert alert-success" v-if="show" key="success">Success</div>-->
+      <!--<div class="alert alert-danger" v-else key="danger">danger</div>-->
+    <!--</transition>-->
+
+    <transition name="ma" mode="out-in">
+      <div class="alert alert-success" v-if="show" key="success">Success</div>
+      <div class="alert alert-danger" v-else key="danger">danger</div>
     </transition>
 
   </div>
@@ -43,7 +53,7 @@ export default {
   .ma-leave {}
   .ma-leave-active {
     animation: 1s ma-slide forwards;
-    transition: opacity 3s;
+    transition: opacity 1.5s;
   }
   .ma-leave-to {
     opacity: 0;
