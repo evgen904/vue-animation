@@ -22,10 +22,25 @@
       <!--<div class="alert alert-danger" v-else key="danger">danger</div>-->
     <!--</transition>-->
 
-    <transition name="ma" mode="out-in">
-      <div class="alert alert-success" v-if="show" key="success">Success</div>
-      <div class="alert alert-danger" v-else key="danger">danger</div>
+    <!--<transition name="ma" mode="out-in">-->
+      <!--<div class="alert alert-success" v-if="show" key="success">Success</div>-->
+      <!--<div class="alert alert-danger" v-else key="danger">danger</div>-->
+    <!--</transition>-->
+
+    <transition
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @enter-cancelled="enterCancelle"
+
+      @before-leave="beforeLeave"
+      @leave="leave"
+      @after-leave="afterLeave"
+      @leave-cancelled="leaveCancelle"
+    >
+      <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, repudiandae?</p>
     </transition>
+
 
   </div>
 </template>
@@ -35,6 +50,34 @@ export default {
   data () {
     return {
       show: false
+    }
+  },
+  methods: {
+    beforeEnter(el) {
+      console.log('beforeEnter')
+    },
+    enter(el, done) {
+      console.log('enter')
+      done()
+    },
+    afterEnter(el) {
+      console.log('afterEnter')
+    },
+    enterCancelle(el) {
+      console.log('enterCancelle')
+    },
+    beforeLeave(el) {
+      console.log('beforeLeave')
+    },
+    leave(el, done) {
+      console.log('leave')
+      done()
+    },
+    afterLeave(el) {
+      console.log('afterLeave')
+    },
+    leaveCancelle(el) {
+      console.log('leaveCancelle')
     }
   }
 }
