@@ -41,6 +41,17 @@
       <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, repudiandae?</p>
     </transition>
 
+    <br><br>
+
+    <button class="btn btn-success" @click="add">Add</button>
+    <button class="btn btn-danger" @click="remove">Remove</button>
+
+    <hr>
+
+    <transition-group class="list-group width300" tag="ul" name="ma2">
+      <li class="list-group-item" v-for="item of items" :key="item">{{item}}</li>
+    </transition-group>
+
 
   </div>
 </template>
@@ -49,7 +60,9 @@
 export default {
   data () {
     return {
-      show: false
+      show: false,
+      items: [1, 2, 3, 4, 5],
+      nextNum: 6
     }
   },
   methods: {
@@ -78,6 +91,15 @@ export default {
     },
     leaveCancelle(el) {
       console.log('leaveCancelle')
+    },
+    getIndex() {
+      return Math.floor(Math.random() * this.items.length)
+    },
+    add() {
+      this.items.splice(this.getIndex(), 0, this.nextNum++)
+    },
+    remove() {
+      this.items.splice(this.getIndex(), 1)
     }
   }
 }
@@ -110,5 +132,21 @@ export default {
       transform: translateX(-100px);
     }
   }
+
+  .width300 {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+
+  .ma2-enter-active, .ma2-leave-active {
+    transition: 1s all;
+  }
+  .ma2-enter, .ma2-leave-to {
+    transform: translateX(-100px);
+  }
+
+
+
 
 </style>
